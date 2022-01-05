@@ -34,7 +34,7 @@
 			<button type="submit" class="entrar">Entrar</button>
 		</div>
 		<div class="button">
-			<button type="button" class="cadastrar" onclick= "window.location.href = 'cadastro.php'">Cadastrar-se</button>
+			<button type="button" class="cadastrar" onclick= "window.location.href = 'cadastro.html'">Cadastrar-se</button>
 		</div>
 		</form>
 	</article>
