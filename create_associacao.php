@@ -6,7 +6,7 @@
 	//Conexão
 	require_once 'dbconnect.php';
 
-	if (isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['telefone']) && isset($_POST['senha']){
+	if (isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['telefone']) && isset($_POST['senha'])){
 		$nome=mysqli_escape_string($connect,$_POST['nome']);
 		$email=mysqli_escape_string($connect,$_POST['email']);
 		$telefone=mysqli_escape_string($connect,$_POST['telefone']);
