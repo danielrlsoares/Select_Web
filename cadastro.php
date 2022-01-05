@@ -1,30 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php
 
-//Iniciar  Sessão
-session_start();
-
-//Conexão
-require_once '28dbconnect.php';
-
-if(isset($_POST['btn-cadastrar'])):
-	$nome=mysqli_escape_string($connect,$_POST['nome']);
-	$email=mysqli_escape_string($connect,$_POST['email']);
-	$telefone=mysqli_escape_string($connect,$_POST['telefone']);
-	$senha=mysqli_escape_string($connect,$_POST['senha']);
-	
-	$sql="INSERT INTO associacao(nome_associacao,email_associacao,telefone_associacao, senha_associacao) VALUES ('$nome', '$email', '$telefone', '$senha')";
-	echo $sql;
-	if(mysqli_query($connect,$sql)):
-		$_SESSION['mensagem'] = "Cadastro com sucesso!";
-		header('Location: ../28crud_index.php?sucesso');
-	else:
-		$_SESSION['mensagem'] = "Erro ao cadastrar!";		
-		header('Location: ../28crud_index.php?erro');
-	endif;
-endif;	
-?>
 <head>
 	<title>Select - Cadastro</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css"/>
