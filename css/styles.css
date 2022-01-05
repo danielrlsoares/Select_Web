@@ -7,7 +7,7 @@
 html, body{
 	font-family: "Helvetica", sans-serif;
 	font-size: 14pt;
-	background-color:#c1d7db;
+	background-color:#83c99e;
 	overflow-x: hidden;
 }
 
@@ -25,7 +25,7 @@ li {
 	align-items: center;
 	justify-content: space-between;
 	padding: 0px;
-	background-color:#134f5c;
+	background-color:#07451e;
 	color: #fff;
 }
 
@@ -41,13 +41,13 @@ li {
 }
 
 .menu li:hover {
-	background-color: #45818e;
+	background-color: #0ecf58;
 	border-radius: 5px;
 	transition: 0.3s ease;
 }
 
 .active{
-	background-color: #5fa0ad;
+	background-color: #13a149;
 	border-radius: 5px;
 }
 
@@ -87,7 +87,7 @@ form {
     padding: 1em;
     border: 1px solid #CCC;
     border-radius: 1em;
-	background-color:#e8fcff;
+	background-color:#b8f5cf;
 }
 
 form div + div {
@@ -125,7 +125,7 @@ button {
 }
 
 .cadastrar{
-	background-color: #134f5c;
+	background-color: #05546e;
 }
 
 .entrar, .continuar{
@@ -143,14 +143,14 @@ article{
 .desenvolvedor{
 	float: right;
 	height: 200px;
-	border:7px solid #134f5c;
+	border:7px solid #13a149;
 	background:transparent url(/imagem.jpg);
 }
 
 .desenvolvedora{
 	float: left;
 	height: 200px;
-	border:7px solid #134f5c;
+	border:7px solid #13a149;
 	background:transparent url(/imagem.jpg);
 }
 
@@ -184,7 +184,7 @@ h2{
 	width: 45%;
 	border: 1px solid #CCC;
     border-radius: 1em;
-	background-color:#e8fcff;
+	background-color:#b8f5cf;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -206,3 +206,4 @@ video{
 	width: 45%;
 	height: auto;
 }
+
