@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php
 
-?>
 <head>
 	<title>Select - Login</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css"/>
@@ -27,7 +25,7 @@
 		<h3 class="header_slogan">Login</h3>
 	</div>
 	<article class="container">
-		<form method="post">
+		<form action="login.php" method="post">
 		<div>
 			<input type="text" id="login" placeholder="Email"/>
 			<input type="password" id="passw" placeholder="Senha"/>
