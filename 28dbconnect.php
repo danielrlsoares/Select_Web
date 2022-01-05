@@ -1,9 +1,9 @@
 <?php
 //Conexão com banco de dados
-$servername = "localhost"; //endereço do servidor
-$username="root";
-$password="usbw";
-$db_name="select";
+$servername = "ec2-3-211-240-42.compute-1.amazonaws.com"; //endereço do servidor
+$username="duevzcajranagt";
+$password="658b5f4795b11838c7490f9d231a646ba08fcfe4370d1f72ec57b12649695f54";
+$db_name="d9h1pdr1idnnl";
 
 //pdo - somente orientado objeto
 $connect =mysqli_connect($servername,$username,$password,$db_name);
