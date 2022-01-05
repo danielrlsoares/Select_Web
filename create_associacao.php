@@ -14,7 +14,7 @@
 		
 		$sql="INSERT INTO associacao(nome_associacao,email_associacao,telefone_associacao, senha_associacao) VALUES ('$nome', '$email', '$telefone', '$senha')";
 		echo $sql;
-		if(mysqli_query($connect,$sql))
+		if(mysqli_query($connect,$sql)){
 			$_SESSION['mensagem'] = "Cadastro com sucesso!";
 		}
 		else{
