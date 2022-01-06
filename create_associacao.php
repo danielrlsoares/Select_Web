@@ -9,7 +9,7 @@
 		$telefone=mysqli_escape_string($connect,$_POST['telefone']);
 		$senha=mysqli_escape_string($connect,$_POST['senha']);
 		
-		$con = pg_connect(getenv("postgres://duevzcajranagt:658b5f4795b11838c7490f9d231a646ba08fcfe4370d1f72ec57b12649695f54@ec2-3-211-240-42.compute-1.amazonaws.com:5432/d9h1pdr1idnnl"));
+		$con = pg_connect(getenv("DATABASE_URL"));
 		$sql="INSERT INTO associacao(nome_associacao,email_associacao,telefone_associacao, senha_associacao) VALUES ('$nome', '$email', '$telefone', '$senha')";
 		
 		echo $sql;
