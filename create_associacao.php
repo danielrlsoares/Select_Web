@@ -15,9 +15,11 @@
 		echo $sql;
 		if(pg_query($con, $sql)){
 			$_SESSION['mensagem'] = "Cadastro com sucesso!";
+			pg_close($con);
 		}
 		else{
-			$_SESSION['mensagem'] = "Erro ao cadastrar!";		
+			$_SESSION['mensagem'] = "Erro ao cadastrar!";	
+			pg_close($con);
 		}
 	}	
 ?>
