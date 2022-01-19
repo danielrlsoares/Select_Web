@@ -7,31 +7,31 @@ session_start();
 
 if(isset($_POST['btn-continuar'])):
 	$erros = array();
-	$nome=mysqli_escape_string($connect,$_POST['nome']);
-	$telefone=mysqli_escape_string($connect,$_POST['telefone']);
-	$senha=mysqli_escape_string($connect,$_POST['senha']);
+	$nome=pg_escape_string($connect,$_POST['nome']);
+	$telefone=pg_escape_string($connect,$_POST['telefone']);
+	$senha=pg_escape_string($connect,$_POST['senha']);
 	
 	if($email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)):
-		$email=mysqli_escape_string($connect,$_POST['email']);
+		$email=pg_escape_string($connect,$_POST['email']);
 	else:
 		if(!empty($email)):
 			$erros[] = "<li style='color:red;font-size:10pt;'>Email inválido!</li>";
 		endif;
 	endif;
 	
-	$rua=mysqli_escape_string($connect,$_POST['rua']);
-	$cep=mysqli_escape_string($connect,$_POST['cep']);
-	$numero=mysqli_escape_string($connect,$_POST['numero']);
-	$complemento=mysqli_escape_string($connect,$_POST['complemento']);
-	$uf=mysqli_escape_string($connect,$_POST['uf']);
-	$cidade=mysqli_escape_string($connect,$_POST['cidade']);
-	$bairro=mysqli_escape_string($connect,$_POST['bairro']);
+	$rua=pg_escape_string($connect,$_POST['rua']);
+	$cep=pg_escape_string($connect,$_POST['cep']);
+	$numero=pg_escape_string($connect,$_POST['numero']);
+	$complemento=pg_escape_string($connect,$_POST['complemento']);
+	$uf=pg_escape_string($connect,$_POST['uf']);
+	$cidade=pg_escape_string($connect,$_POST['cidade']);
+	$bairro=pg_escape_string($connect,$_POST['bairro']);
 	
 	if(empty($nome) or empty($email) or empty($telefone) or empty($senha) or empty($rua) or empty($cep) or empty($numero) or empty($uf) or empty($cidade) or empty($bairro)):
 		$erros[] = "<li style='color:red;font-size:10pt;'>Todos os campos devem ser preenchidos</li>";
 	else:
 		$sql="INSERT INTO endereco(rua, cep, numero, complemento, uf, cidade, bairro) VALUES ('$rua', '$cep', '$numero', '$complemento', '$uf', '$cidade', '$bairro')";
-		if(mysqli_query($connect, $sql)):
+		if(pg_query($connect, $sql)):
 			$_SESSION['mensagem'] = "Cadastro com sucesso!";
 			header('Location: index.php');
 		else:
@@ -40,23 +40,23 @@ if(isset($_POST['btn-continuar'])):
 		endif;
 				
 		$sql = "SELECT * FROM endereco WHERE rua='$rua' AND numero='$numero' AND complemento='$complemento'";
-		$resultado = mysqli_query($connect, $sql);
+		$resultado = pg_query($connect, $sql);
 		
-		if(mysqli_num_rows($resultado) == 1):
-			$dados = mysqli_fetch_array($resultado);
+		if(pg_num_rows($resultado) == 1):
+			$dados = pg_fetch_array($resultado);
 			$cod_endereco = $dados['cod_endereco'];
 		endif;
 		
 		$senha=md5($senha);
 		$sql="INSERT INTO associacao(nome_associacao, email_associacao, telefone_associacao, senha_associacao, fk_cod_endereco) VALUES ('$nome', '$email', '$telefone', '$senha', '$cod_endereco')";
-		if(mysqli_query($connect, $sql)):
+		if(pg_query($connect, $sql)):
 			header('Location: index.php');
 		else:
-			$erros[] = "<li style='color:red;font-size:10pt;'>Erro ao cadastrar: ".die(mysqli_error($connect))."</li>";
+			$erros[] = "<li style='color:red;font-size:10pt;'>Erro ao cadastrar: ".die(pg_error($connect))."</li>";
 		endif;
 	endif;
 endif;
-mysqli_close($connect);	
+pg_close($connect);	
 ?>
 
 <head>
