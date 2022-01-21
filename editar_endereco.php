@@ -28,7 +28,7 @@ if(isset($_POST['btn-confirmar'])):
 	if(pg_query($connect, $sql)):
 			$_SESSION['mensagem'] = "Editado com sucesso!";
 			$url= "endereco.php?id=<?= $dados['cod_endereco'] ?>"
-			header('Location: $url');
+			header('Location: endereco.php');
 		else:
 			$_SESSION['mensagem'] = "Erro ao editar!";
 			die(pg_last_error($connect));
