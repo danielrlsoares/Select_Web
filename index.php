@@ -26,7 +26,7 @@ if(isset($_POST['btn-entrar'])):
 				pg_close($connect);
 				$_SESSION['logado'] = true;
 				$_SESSION['cod_associacao'] = $dados['cod_associacao'];
-				header('Location: perfil.php');
+				header('Location: home.php');
 			else:
 				$erros[] = "<li style='color:red;font-size:10pt;'>Senha incorreta</li>";
 			endif;
