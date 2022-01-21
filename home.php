@@ -9,6 +9,9 @@ if(!isset($_SESSION['logado'])):
 endif;
 
 $id = $_SESSION['cod_associacao'];
+$sql = "SELECT * FROM associacao WHERE cod_associacao=$id";
+$resultado = pg_query($connect, $sql);
+$dados = pg_fetch_array($resultado);
 $erros=array();
 ?>
 
@@ -34,7 +37,7 @@ $erros=array();
 		</ul>
 	</nav>
 
-	<h3 class="header_slogan">Dados Cadastrais</h3>
+	<h3 class="header_slogan"><?php echo $dados['nome_associacao'] ?></h3>
 	
 	<article class="container">
 	</article>
