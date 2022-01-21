@@ -42,14 +42,17 @@
 
 				<?php
 				require_once 'dbconnect.php';
-
-				if(isset($_GET['id'])):
-					$id = $_GET['id'];
-						
-					$sql = "SELECT * FROM endereco WHERE cod_endereco=$id";
-					$resultado = pg_query($connect, $sql);
-					$dados = pg_fetch_array($resultado);
-				endif;
+				session_start();
+				
+				$id = $_SESSION['cod_associacao'];
+				$sql = "SELECT * FROM associacao WHERE fk_cod_endereco=$id";
+				$resultado = pg_query($connect, $sql);
+				$dados = pg_fetch_array($resultado);
+				
+				$id = $dados['fk_cod_endereco'];
+				$sql = "SELECT * FROM endereco WHERE cod_endereco=$id";
+				$resultado = pg_query($connect, $sql);
+				$dados = pg_fetch_array($resultado);
 				?>
 				<tr class="consulta_row">
 					<td><?php echo $dados['rua']; ?></td>
