@@ -258,7 +258,16 @@ video{
 	background-color: #f56642;
 }
 
+#add, #check{
+	background-color: #008000;
+}
+
 .invisible{
 	padding: 0em;
+    border: none;
+}
+
+.consulta tr td form{
+	padding: 0px 0px 0px 0px;
     border: none;
 }
