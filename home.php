@@ -70,7 +70,13 @@ $erros=array();
 					<td rowspan=2><?php echo $demora['demora']." min"; ?></td>
 					<td><?php echo $dados_usu['nome_usuario']; ?></td>
 					<td rowspan=2><?php echo $dados_ret['material']; ?></td>
-					<td rowspan=2><a href="endereco_solicitacao.php?id=<?= $dados_ret['endereco_cod_endereco'] ?>">Ver Endereço</a></td>		
+					<td rowspan=2><a href="endereco_solicitacao.php?id=<?= $dados_ret['endereco_cod_endereco'] ?>">Ver Endereço</a></td>
+					
+					<td rowspan=2>
+						<form action="home.php" method="post">
+							<button class="float-btn" id="check" type="submit" name="btn-continuar"><img src="imagens/check.png" class="icon"></button>
+						</form>
+					</td>	
 				</tr>
 				<tr class="consulta_row"><td><?php echo $dados_usu['cpf_usuario']; ?></td></tr>
 				<?php 
