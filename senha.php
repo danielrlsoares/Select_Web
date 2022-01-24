@@ -65,7 +65,7 @@ endif;
 	<h3 class="header_slogan">Alterar Senha</h3>
 	
 	<article class="container">
-		<form action="senha.php" method="post">
+		<form action="senha.php" method="post" class="decoration">
 		<div>
 			<input type="password" name="senha1" placeholder="Digite a antiga senha"/>
 			<input type="password" name="senha2" placeholder="Digite a nova senha"/>
