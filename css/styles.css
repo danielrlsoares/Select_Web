@@ -95,6 +95,9 @@ li {
 	width: 200px;
 	margin: 0 auto;
 	padding: 0px 0px 0px 0px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
     border: none;
     border-radius: 0em;
 }
