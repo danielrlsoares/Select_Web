@@ -74,7 +74,7 @@ li {
 	flex-wrap:wrap;
 }
 
-article form {
+.decoration {
     margin: 0 auto;
     width: 400px;
     padding: 1em;
@@ -87,13 +87,15 @@ article form {
 	justify-content: space-evenly;
 }
 
-article .consulta tr td form{
-	padding: 0px 0px 0px 0px;
-    border: none;
+.decoration div + div {
+    margin-top: 1em;
 }
 
-form div + div {
-    margin-top: 1em;
+.no_decoration{
+	margin: 0 auto;
+	padding: 0px 0px 0px 0px;
+    border: none;
+    border-radius: 0em;
 }
 
 input, textarea {
