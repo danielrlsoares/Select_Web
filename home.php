@@ -16,7 +16,7 @@ $erros=array();
 ?>
 
 <head>
-	<title>Select - Perfil</title>
+	<title>Select - Home</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css"/>
 	<meta charset="utf-8"/>
 </head>
@@ -40,6 +40,45 @@ $erros=array();
 	<h3 class="header_slogan"><?php echo $dados['nome_associacao'] ?></h3>
 	
 	<article class="container">
+		<table class="consulta">
+			<thead>
+				<tr class="consulta_row">
+					<th>Foto do Lixo</th>
+					<th>Tempo de espera</th>
+					<th>Solicitador</th>
+					<th>Material</th>
+					<th>Endereco</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+				$sql0="SELECT * FROM retirada ORDER BY data_hora_solicitacao ASC";
+				$resultado0=pg_query($connect, $sql0);
+				while($dados_ret = pg_fetch_array($resultado0)):
+					$id_soli=$dados_ret['cod_solicitacao'];
+					$sql1="SELECT EXTRACT(day FROM intervalo)*60*24 + EXTRACT(hour FROM intervalo)*60 + EXTRACT(minute FROM intervalo) as demora FROM (SELECT CURRENT_TIMESTAMP-data_hora_solicitacao intervalo FROM retirada WHERE cod_solicitacao=$id_soli) as teste";
+					$demora_array = pg_query($connect, $sql1);
+					$demora=pg_fetch_array($demora_array);
+					
+					$email_usu=$dados_ret['usuario_email_usuario'];
+					$sql2="SELECT nome_usuario, cpf_usuario FROM usuario WHERE email_usuario='$email_usu'";
+					$resultado1 = pg_query($connect, $sql2);
+					$dados_usu = pg_fetch_array($resultado1);
+				?>
+				<tr class="consulta_row">
+					<td rowspan=2><img src="<?php echo $dados_ret['foto_local']; ?>" class="foto_local"></td>
+					<td rowspan=2><?php echo $demora['demora']." min"; ?></td>
+					<td><?php echo $dados_usu['nome_usuario']; ?></td>
+					<td rowspan=2><?php echo $dados_ret['material']; ?></td>
+					<td rowspan=2><a href="endereco_solicitacao.php?id=<?= $dados_ret['endereco_cod_endereco'] ?>">Ver Endereço</a></td>		
+				</tr>
+				<tr class="consulta_row"><td><?php echo $dados_usu['cpf_usuario']; ?></td></tr>
+				<?php 
+				endwhile;
+				pg_close($connect);
+				?>
+			</tbody>
+		</table>
 	</article>
 </body>
 
