@@ -96,7 +96,7 @@ li {
 	margin: 0 auto;
 	padding: 0px 0px 0px 0px;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: space-evenly;
     border: none;
     border-radius: 0em;
