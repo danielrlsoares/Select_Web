@@ -75,7 +75,7 @@ $erros=array();
 					
 					<td rowspan=2>
 						<form action="home.php" method="post" class="no_decoration">
-							<select name="catador" width="60%">
+							<select name="catador" width="70%">
 							<?php 
 							$id = $_SESSION['email_associacao'];
 							$sql3 = "SELECT cod_catador, nome_catador FROM catador WHERE associacao_email_associacao='$id'";
