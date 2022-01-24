@@ -74,7 +74,7 @@ li {
 	flex-wrap:wrap;
 }
 
-form {
+article form {
     margin: 0 auto;
     width: 400px;
     padding: 1em;
@@ -85,6 +85,11 @@ form {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
+}
+
+article .consulta tr td form{
+	padding: 0px 0px 0px 0px;
+    border: none;
 }
 
 form div + div {
@@ -264,10 +269,5 @@ video{
 
 .invisible{
 	padding: 0em;
-    border: none;
-}
-
-.consulta tr td form{
-	padding: 0px 0px 0px 0px;
     border: none;
 }
