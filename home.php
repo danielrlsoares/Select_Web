@@ -53,20 +53,21 @@ $erros=array();
 			</thead>
 			<tbody>
 				<?php
-				$sql0="SELECT ret.* FROM retirada ret WHERE pendente=true ORDER BY data_hora_solicitacao ASC";
+				$id_ass=$dados['endereco_cod_endereco'];
+				$sqla="SELECT bairro FROM endereco WHERE cod_endereco=$id_ass";
+				$resultadoa=pg_query($connect, $sqla);
+				$bairro_ass = pg_fetch_array($resultadoa);
+				
+				$sql0="SELECT * FROM retirada WHERE pendente=true ORDER BY data_hora_solicitacao ASC";
 				$resultado0=pg_query($connect, $sql0);
 				$dados_ret = pg_fetch_array($resultado0);
 				
-				$sqla="SELECT bairro FROM endereco WHERE cod_endereco=$id";
-				$resultado=pg_query($connect, $sqla);
-				$bairro_ass = pg_fetch_array($resultado);
-				
-				$id_soli=$dados_ret['cod_solicitacao'];
-				$sqlb="SELECT bairro FROM endereco WHERE cod_endereco=$id";
+				$id_soli=$dados_ret['endereco_cod_endereco'];
+				$sqlb="SELECT bairro FROM endereco WHERE cod_endereco=$id_soli";
 				$resultado=pg_query($connect, $sqlb);
 				$bairro_soli = pg_fetch_array($resultado);
 				
-				if($bairro_ass==bairro_soli):
+				if($bairro_ass['bairro']==$bairro_soli['bairro']):
 					while($dados_ret = pg_fetch_array($resultado0)):
 						$id_soli=$dados_ret['cod_solicitacao'];
 						$sql1="SELECT EXTRACT(day FROM intervalo)*60*24 + EXTRACT(hour FROM intervalo)*60 + EXTRACT(minute FROM intervalo) as demora FROM (SELECT CURRENT_TIMESTAMP-data_hora_solicitacao intervalo FROM retirada WHERE cod_solicitacao=$id_soli) as nome";
@@ -106,8 +107,8 @@ $erros=array();
 				</tr>
 				<tr class="consulta_row"><td><?php echo $dados_usu['cpf_usuario']; ?></td></tr>
 				<?php
-				 endif;
 					endwhile;
+				endif;
 				pg_close($connect);
 				?>
 			</tbody>
