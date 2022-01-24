@@ -78,7 +78,7 @@ endif;
 
 	
 	<article class="container">
-		<form action="editar_endereco.php" method="post">
+		<form action="editar_endereco.php" method="post" class="decoration">
 		<div>
 			<input type="hidden" name="id" value="<?php echo $dados['cod_endereco']; ?>"/>
 			<input type="text" name="rua" value="<?php echo $dados['rua']; ?>"/>
