@@ -61,7 +61,7 @@ endif;
 	<h3 class="header_slogan">Login</h3>
 
 	<article class="container">
-		<form action="index.php" method="post">
+		<form action="index.php" method="post" class="decoration">
 		<div>
 			<input type="text" name="email" placeholder="Email"/>
 			<input type="password" name="senha" placeholder="Senha"/>
