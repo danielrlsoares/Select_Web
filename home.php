@@ -73,7 +73,7 @@ $erros=array();
 					<td rowspan=2><?php echo $dados_ret['material']; ?></td>
 					<td rowspan=2><a href="endereco_solicitacao.php?id=<?= $dados_ret['endereco_cod_endereco'] ?>">Ver Endereço</a></td>
 					
-					<td>
+					<td rowspan=2>
 						<form action="home.php" method="post" class="no_decoration">
 							<select name="catador" class="small">
 							<?php 
