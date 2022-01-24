@@ -87,7 +87,7 @@ $erros=array();
 							endwhile; 
 							?>
 							 </select>
-							<input class="float-btn" id="check" type="submit" name="btn-continuar"><img src="imagens/check.png" class="icon"></button>
+							<button class="float-btn" id="check" type="submit" name="btn-continuar"><img src="imagens/check.png" class="icon"></button>
 						</form>
 					</td>	
 				</tr>
