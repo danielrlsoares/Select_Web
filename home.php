@@ -53,7 +53,7 @@ $erros=array();
 			</thead>
 			<tbody>
 				<?php
-				$sql0="SELECT * FROM retirada ORDER BY data_hora_solicitacao ASC";
+				$sql0="SELECT * FROM retirada WHERE pendente=true ORDER BY data_hora_solicitacao ASC";
 				$resultado0=pg_query($connect, $sql0);
 				while($dados_ret = pg_fetch_array($resultado0)):
 					$id_soli=$dados_ret['cod_solicitacao'];
@@ -74,7 +74,7 @@ $erros=array();
 					<td rowspan=2><a href="endereco_solicitacao.php?id=<?= $dados_ret['endereco_cod_endereco'] ?>">Ver Endereço</a></td>
 					
 					<td rowspan=2>
-						<form action="home.php" method="post" class="no_decoration">
+						<form action="atende.php" method="post" class="no_decoration">
 							<select name="catador" width="70%">
 							<?php 
 							$id = $_SESSION['email_associacao'];
@@ -87,6 +87,7 @@ $erros=array();
 							endwhile; 
 							?>
 							 </select>
+							 <input type="hidden" name="id" value="<?php echo $dados_ret['cod_solicitacao']; ?>">
 							<button class="float-btn" id="check" type="submit" name="btn-continuar"><img src="imagens/check.png" class="icon"></button>
 						</form>
 					</td>	
