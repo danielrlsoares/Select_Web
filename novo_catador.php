@@ -72,7 +72,7 @@ pg_close($connect);
 	<h3 class="header_slogan">Adicionar Catador</h3>
 	
 	<article class="container">
-	<form action="novo_catador.php" method="post">
+	<form action="novo_catador.php" method="post" class="decoration">
 		<div>
 			<input type="text" name="nome" placeholder="Nome Completo"/>
 			<input oninput="mascara_cpf(this)" type="text" name="cpf" placeholder="CPF"/>
