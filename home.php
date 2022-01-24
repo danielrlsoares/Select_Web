@@ -73,7 +73,20 @@ $erros=array();
 					<td rowspan=2><a href="endereco_solicitacao.php?id=<?= $dados_ret['endereco_cod_endereco'] ?>">Ver Endereço</a></td>
 					
 					<td rowspan=2>
-						<form action="home.php" method="post">
+						<form action="home.php" method="post" class="no_decoration">
+							Selecionar Catador: <br>
+							<select name="catador" class="small">
+							<?php 
+							$id = $_SESSION['email_associacao'];
+							$sql3 = "SELECT cod_catador, nome_catador FROM catador WHERE associacao_email_associacao='$id'";
+							$resultado2 = pg_query($connect, $sql3);
+							while($dados = pg_fetch_array($resultado2)):
+							?>
+								<option value="<?php echo $dados['cod_catador']; ?>"><?php echo $dados['nome_catador']; ?></option>
+							<?php 
+							endwhile; 
+							?>
+							 </select>
 							<button class="float-btn" id="check" type="submit" name="btn-continuar"><img src="imagens/check.png" class="icon"></button>
 						</form>
 					</td>	
