@@ -55,7 +55,7 @@ endif;
 
 	
 	<article class="container">
-		<form action="editar_associacao.php" method="post">
+		<form action="editar_associacao.php" method="post" class="decoration">
 		<div>
 			<input type="text" name="nome" value="<?php echo $dados['nome_associacao']; ?>"/>
 			<input type="text" name="email" value="<?php echo $dados['email_associacao']; ?>"/>
