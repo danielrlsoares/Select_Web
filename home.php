@@ -74,7 +74,7 @@ $erros=array();
 					
 					<td rowspan=2>
 						<form action="home.php" method="post" class="no_decoration">
-							Selecionar Catador: <br>
+							<label for="catador">Selecionar Catador: </label><br>
 							<select name="catador" class="small">
 							<?php 
 							$id = $_SESSION['email_associacao'];
