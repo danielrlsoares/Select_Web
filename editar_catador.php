@@ -89,7 +89,7 @@ endif;
 
 	
 	<article class="container">
-		<form action="editar_catador.php" method="post">
+		<form action="editar_catador.php" method="post" class="decoration">
 		<div>
 			<input type="hidden" name="id" value="<?php echo $dados['cod_catador']; ?>"/>
 			<input type="text" name="nome" value="<?php echo $dados['nome_catador']; ?>"/>
