@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<title>Select - Home</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+	<meta charset="utf-8"/>
+	<meta http-equiv="refresh" content="1" url="home.php">
+</head>
+	
 <?php
 require_once 'dbconnect.php';
 session_start();
@@ -14,13 +21,6 @@ $resultado = pg_query($connect, $sql);
 $dados = pg_fetch_array($resultado);
 $erros=array();
 ?>
-
-<head>
-	<title>Select - Home</title>
-	<link rel="stylesheet" type="text/css" href="css/styles.css"/>
-	<meta charset="utf-8"/>
-	<meta http-equiv="refresh" content="60">
-</head>
 
 <body>
 	<nav class="navbar">
