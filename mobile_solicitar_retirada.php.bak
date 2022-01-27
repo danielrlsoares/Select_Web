@@ -6,17 +6,6 @@ $con = pg_connect(getenv("DATABASE_URL"));
 
 $response = array();
 
-
-
-
-
-
-
-
-
-
-
-
 if ( isset($_POST["rua"]) && isset($_POST["bairro"]) && isset($_POST["cidade"]) && isset($_POST["numero"]) && isset($_POST["uf"]) && isset($_POST["cep"]) && isset($_POST["referencia"]) && isset($_POST["material"]) && isset($_FILES["foto"]) ) {
 	
 	$rua = trim($_POST["rua"]);
@@ -35,7 +24,7 @@ if ( isset($_POST["rua"]) && isset($_POST["bairro"]) && isset($_POST["cidade"]) 
 	
 	
 	$result_endereco = pg_query($con, "INSERT INTO endereco(rua, bairro, cidade, numero, uf, cep, referencia) VALUES('$rua', '$bairro', '$cidade', '$numero', '$uf', '$cep', '$referencia')");
-	$result_retirada = pg_query($con, "INSERT INTO retirada(material, foto_material, data_hora_solicitacao, endereco_cod_endereco, usuario_email_usuario) VALUES('$material', '$foto', now()), ,);
+	$result_retirada = pg_query($con, "INSERT INTO retirada(material, foto_material, data_hora_solicitacao) VALUES('$material', '$foto', now())");
 	
 	$response["success"] = 1;
 	

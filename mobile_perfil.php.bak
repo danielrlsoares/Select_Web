@@ -1,4 +1,5 @@
 <?php
+
 	
 // connecting to db
 $con = pg_connect(getenv("DATABASE_URL"));
@@ -40,6 +41,10 @@ else {
 			$response["cpf"] = $row["cpf_usuario"];
 			$response["telefone"] = $row["telefone_usuario"];
 			
+			
+			
+			
+			
 		}
 		else {
 			// senha ou usuario nao confere
@@ -52,6 +57,21 @@ else {
 		$response["success"] = 0;
 		$response["error"] = "usuario ou senha não confere";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	$result = pg_query($con, "SELECT * FROM usuario WHERE email_usuario='$email'");
+	$row = pg_fetch_array($result);
+
+	
+	
+	$response["succsses"] = 1;
 	
 	
 	pg_close($con);

@@ -1,5 +1,5 @@
 <?php
-	
+
 // connecting to db
 $con = pg_connect(getenv("DATABASE_URL"));
 
@@ -33,13 +33,6 @@ else {
 		$row = pg_fetch_array($query);
 		if($password == $row['senha_usuario']){
 			$response["success"] = 1;
-			
-			$response["email"] = $row["email_usuario"];
-			$response["nome"] = $row["nome_usuario"];
-			$response["dat_nasc"] = $row["dat_nasc_usuario"];
-			$response["cpf"] = $row["cpf_usuario"];
-			$response["telefone"] = $row["telefone_usuario"];
-			
 		}
 		else {
 			// senha ou usuario nao confere
@@ -52,8 +45,8 @@ else {
 		$response["success"] = 0;
 		$response["error"] = "usuario ou senha não confere";
 	}
-	
-	
-	pg_close($con);
-	echo json_encode($response);
+}
+
+pg_close($con);
+echo json_encode($response);
 ?>
