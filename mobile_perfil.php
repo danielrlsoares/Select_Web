@@ -32,13 +32,21 @@ else {
 	if(pg_num_rows($query) > 0){
 		$row = pg_fetch_array($query);
 		if($password == $row['senha_usuario']){
+			
 			$response["success"] = 1;
 			
-			$response["email"] = $row["email_usuario"];
-			$response["nome"] = $row["nome_usuario"];
-			$response["dat_nasc"] = $row["dat_nasc_usuario"];
-			$response["cpf"] = $row["cpf_usuario"];
-			$response["telefone"] = $row["telefone_usuario"];
+			$dados = pg_query($con, "SELECT * FROM usuario WHERE email_usuario='$username'");
+			if(pg_num_rows($dados) > 0){
+				
+				$response["email"] = $row["email_usuario"];
+				$response["nome"] = $row["nome_usuario"];
+				$response["dat_nasc"] = $row["dat_nasc_usuario"];
+				$response["cpf"] = $row["cpf_usuario"];
+				$response["telefone"] = $row["telefone_usuario"];
+				
+			}
+			
+			
 			
 		}
 		else {

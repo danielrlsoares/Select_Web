@@ -38,7 +38,6 @@ else {
 		$uf = trim($_POST["uf"]);
 		$cep = trim($_POST["cep"]);
 		$referencia = trim($_POST["referencia"]);
-	
 		$material = trim($_POST["material"]);
 		
 		$imageFileType = strtolower(pathinfo(basename($_FILES["foto"]["name"]),PATHINFO_EXTENSION));
@@ -47,7 +46,7 @@ else {
 		
 		$result_endereco = pg_query($con, "INSERT INTO endereco(rua, bairro, cidade, numero, uf, cep, referencia) VALUES('$rua', '$bairro', '$cidade', '$numero', '$uf', '$cep', '$referencia') RETURNING cod_endereco");
 		$id_endco = pg_fetch_array($result_endereco,0)[0];
-		$result_retirada = pg_query($con, "INSERT INTO retirada(material, foto_material, data_hora_solicitacao, endereco_cod_endereco, usuario_email_usuario) VALUES('$material', '$foto', now(), $id_endco , $username )");
+		$result_retirada = pg_query($con, "INSERT INTO retirada(material, foto_material, data_hora_solicitacao, endereco_cod_endereco, usuario_email_usuario) VALUES('$material', '$img', now(), $id_endco , $username )");
 		
 		$response["success"] = 1;
 		
