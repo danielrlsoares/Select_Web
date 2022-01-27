@@ -18,6 +18,8 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['nome']) &&
 	$senha = trim($_POST['senha']);
 	$nome = trim($_POST['nome']);
 	$dat_nasc = trim($_POST['dat_nasc']);
+	$date = new DateTime(str_replace('/', '-', $dat_nasc));
+	$date_bd = $date->format('Y-m-d H:i:s');
 	$cpf = trim($_POST['cpf']);
 	$telefone = trim($_POST['telefone']);
 	
@@ -29,7 +31,7 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['nome']) &&
 	}
 	else {
 		// mysql inserting a new row
-		$result = pg_query($con, "INSERT INTO usuario(email_usuario, senha_usuario, nome_usuario, dat_nasc_usuario, cpf_usuario, telefone_usuario) VALUES('$email', '$senha', '$nome', '$dat_nasc', '$cpf', '$telefone')");
+		$result = pg_query($con, "INSERT INTO usuario(email_usuario, senha_usuario, nome_usuario, dat_nasc_usuario, cpf_usuario, telefone_usuario) VALUES('$email', '$senha', '$nome', '$date_bd', '$cpf', '$telefone')");
 	 
 		if ($result) {
 			$response["success"] = 1;
