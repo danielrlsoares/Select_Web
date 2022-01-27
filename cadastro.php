@@ -31,7 +31,9 @@ if(isset($_POST['btn-continuar'])):
 	if(empty($nome) or empty($email) or empty($telefone) or empty($senha) or empty($rua) or empty($cep) or empty($numero) or empty($uf) or empty($cidade) or empty($bairro)):
 		$erros[] = "<li style='color:red;font-size:10pt;'>Alguns campos são obrigatórios!</li>";
 	else:
-		$sql="INSERT INTO endereco(rua, cep, numero, complemento, uf, cidade, bairro, referencia) VALUES ('$rua', '$cep', '$numero', '$complemento', '$uf', '$cidade', '$bairro', '$ref')";
+		$sql="INSERT INTO endereco(rua, cep, numero, complemento, uf, cidade, bairro, referencia) VALUES ('$rua', '$cep', '$numero', '$complemento', '$uf', '$cidade', '$bairro', '$ref') RETURNING cod_endereco";
+		$result = pg_query($connect, $sql);
+		$id_endco = pg_fetch_array($result,0)[0];
 		if(pg_query($connect, $sql)):
 			$_SESSION['mensagem'] = "Cadastro com sucesso!";
 			header('Location: index.php');
@@ -40,7 +42,7 @@ if(isset($_POST['btn-continuar'])):
 			$erros[] = "<li style='color:red;font-size:10pt;'>Erro ao cadastrar: ".die(pg_last_error($connect))."</li>";
 		endif;
 				
-		$sql = "SELECT * FROM endereco WHERE rua='$rua' AND numero='$numero' AND complemento='$complemento'";
+		$sql = "SELECT * FROM endereco WHERE cod_endereco=$id_endco";
 		$resultado = pg_query($connect, $sql);
 		
 		if(pg_num_rows($resultado) == 1):
