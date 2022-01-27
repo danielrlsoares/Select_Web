@@ -5,9 +5,9 @@ session_start();
 $id = $_SESSION['email_associacao'];	
 $sql="DELETE FROM catador WHERE associacao_email_associacao='$id'";
 
-if(pg($connect, $sql)):
+if(pg_query($connect, $sql)):
 	$sql="DELETE FROM associacao WHERE email_associacao='$id'";
-	if(pg($connect, $sql)):
+	if(pg_query($connect, $sql)):
 		$_SESSION['mensagem'] = "Deletado com sucesso!";
 		header('Location: index.php');
 	else:
