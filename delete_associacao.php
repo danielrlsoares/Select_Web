@@ -13,5 +13,6 @@ if(pg($connect, $sql)):
 	else:
 		$_SESSION['mensagem'] = "Erro ao deletar!";
 		die(pg_last_error($connect));
+	endif;
 endif;
 ?>
