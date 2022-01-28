@@ -70,7 +70,7 @@ $erros=array();
 					$dados_usu = pg_fetch_array($resultado1);
 				?>
 				<tr class="consulta_row">
-					<td rowspan=2><img src="<?php echo $dados_ret['foto_local']; ?>" height="55"></td>
+					<td rowspan=2><img src="<?php echo $dados_ret['foto_material']; ?>" height="55"></td>
 					<td rowspan=2><?php echo $demora['demora']." min"; ?></td>
 					<td><?php echo $dados_usu['nome_usuario']; ?></td>
 					<td rowspan=2><?php echo $dados_ret['material']; ?></td>
