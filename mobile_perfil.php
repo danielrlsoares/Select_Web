@@ -37,7 +37,7 @@ else {
 			$response["success"] = 1;
 			
 			$comando = pg_query($con, "SELECT * FROM usuario WHERE email_usuario='$username'");
-			$dados = pg_fetch_array($comando)
+			$dados = pg_fetch_array($comando);
 			if(pg_num_rows($dados) > 0){
 				
 				$response["email"] = $dados["email_usuario"];
