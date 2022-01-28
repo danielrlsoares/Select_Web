@@ -36,7 +36,7 @@
 	if ($isAuth){
 
 
-		$result = pg_query($con, "DELETE * FROM usuario WHERE email_usuario = '$username'");
+		$result = pg_query($con, "DELETE FROM usuario WHERE email_usuario = '$username'");
 
 		if ($result){
 			$response["success"] = 1;
