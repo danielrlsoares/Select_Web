@@ -40,12 +40,12 @@ else {
 		$cep = trim($_POST['cep']);
 		$referencia = trim($_POST['referencia']);
 		$material = trim($_POST['material']);
-		$tempo = now();
-		$strTempo = $tempo->format('Y-m-d H:i:s');
+		//$tempo = now();
+		//$strTempo = $tempo->format('Y-m-d H:i:s');
 		
 		
 
-		$imageFileType = strtolower(pathinfo(basename($_FILES['foto'][$strTempo]),PATHINFO_EXTENSION)); //
+		$imageFileType = strtolower(pathinfo(basename($_FILES['foto']['bairro']),PATHINFO_EXTENSION)); //
 		$image_base64 = base64_encode(file_get_contents($_FILES['foto']['tmp_name']) ); //
 		$foto = 'data:image/'.$imageFileType.';base64,'.$image_base64;
 
