@@ -51,7 +51,7 @@ else {
 	}
 	else{
 	
-		response["success"] = 0;
+		$response["success"] = 0;
 		$response["error"] = "Error BD: ".pg_last_error($con);
 	}
 
