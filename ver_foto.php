@@ -5,6 +5,8 @@
 	<meta charset="utf-8">
 </head>
 <?php
+require_once 'dbconnect.php';
+
 $id=$_GET['id'];
 $sql0="SELECT * FROM retirada WHERE cod_solicitacao=$id";
 $resultado0=pg_query($connect, $sql0);
