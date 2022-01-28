@@ -30,7 +30,7 @@ if(is_null($username)) {
 else {
 	if ( isset($_POST['rua']) && isset($_POST['bairro']) && isset($_POST['cidade']) && isset($_POST['numero']) && isset($_POST['uf']) && isset($_POST['cep']) && isset($_POST['referencia']) && isset($_POST['material']) && isset($_FILES['foto']) ) {
 
-		$response["success"] = 1;
+		
 
 		$rua = trim($_POST['rua']);
 		$bairro = trim($_POST['bairro']);
@@ -48,6 +48,8 @@ else {
 		$result_endereco = pg_query($con, "INSERT INTO endereco(rua, bairro, cidade, numero, uf, cep, referencia) VALUES('$rua', '$bairro', '$cidade', '$numero', '$uf', '$cep', '$referencia') RETURNING cod_endereco");
 		$id_endco = pg_fetch_array($result_endereco,0)[0];
 		$result_retirada = pg_query($con, "INSERT INTO retirada(material, foto_material, data_hora_solicitacao, endereco_cod_endereco, usuario_email_usuario) VALUES('$material', '$img', now(), $id_endco , $username )");
+	
+		$response["success"] = 1;
 	}
 	else{
 	
