@@ -28,8 +28,6 @@ if(is_null($username)) {
 }
 // Se houve envio dos dados
 else {
-	echo "Funciona!";
-	echo $_POST['rua'];
 	if ( isset($_POST['rua']) && isset($_POST['bairro']) && isset($_POST['cidade']) && isset($_POST['numero']) && isset($_POST['uf']) && isset($_POST['cep']) && isset($_POST['referencia']) && isset($_POST['material']) && isset($_FILES['foto']) ) {
 
 		$response["success"] = 1;
