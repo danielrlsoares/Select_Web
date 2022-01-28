@@ -35,11 +35,19 @@
 
 	if ($isAuth){
 
-
-		$result = pg_query($con, "DELETE FROM usuario WHERE email_usuario = '$username'");
+	
+		$result = pg_query($con, "DELETE FROM retirada WHERE usuario_email_usuario = '$username'");
 
 		if ($result){
-			$response["success"] = 1;
+			$result = pg_query($con, "DELETE FROM usuario WHERE email_usuario = '$username'");
+
+			if ($result){
+				$response["success"] = 1;
+			}
+			else{
+				$response["success"] = 0;
+				$response["error"] = "Error BD: ".pg_last_error($con);
+			}
 		}
 		else{
 			$response["success"] = 0;
