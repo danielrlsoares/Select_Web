@@ -12,6 +12,6 @@ $dados_ret = pg_fetch_array($resultado0)
 ?>
 
 <body>
-	<img src="<?php echo $dados_ret['foto_material']; ?>" height="100%">
+	<img src="<?php echo $dados_ret['foto_material']; ?>" height="500">
 </body>
 </html>
