@@ -28,7 +28,7 @@ if(is_null($username)) {
 }
 // Se houve envio dos dados
 else {
-	if ( isset($_POST['rua']) && isset($_POST["bairro"]) && isset($_POST["cidade"]) && isset($_POST["numero"]) && isset($_POST["uf"]) && isset($_POST["cep"]) && isset($_POST["referencia"]) && isset($_POST["material"]) && isset($_FILES["foto"]) ) {
+	if ( isset($_POST['rua']) && isset($_POST['bairro']) && isset($_POST['cidade']) && isset($_POST['numero']) && isset($_POST['uf']) && isset($_POST['cep']) && isset($_POST['referencia']) && isset($_POST['material']) && isset($_FILES['foto']) ) {
 
 		$response["success"] = 1;
 
@@ -41,8 +41,8 @@ else {
 		$referencia = trim($_POST['referencia']);
 		$material = trim($_POST['material']);
 
-		$imageFileType = strtolower(pathinfo(basename($_FILES['foto']['name']),PATHINFO_EXTENSION));
-		$image_base64 = base64_encode(file_get_contents($_FILES['foto']['tmp_name']) );
+		$imageFileType = strtolower(pathinfo(basename($_FILES['foto']),PATHINFO_EXTENSION)); //['rua']
+		$image_base64 = base64_encode(file_get_contents($_FILES['foto']) ); //['tmp_name']
 		$foto = 'data:image/'.$imageFileType.';base64,'.$image_base64;
 
 		$result_endereco = pg_query($con, "INSERT INTO endereco(rua, bairro, cidade, numero, uf, cep, referencia) VALUES('$rua', '$bairro', '$cidade', '$numero', '$uf', '$cep', '$referencia') RETURNING cod_endereco");
