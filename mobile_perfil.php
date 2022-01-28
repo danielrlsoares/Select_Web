@@ -28,8 +28,6 @@ if(is_null($username)) {
 // Se houve envio dos dados
 else {
     $query = pg_query($con, "SELECT senha_usuario FROM usuario WHERE email_usuario='$username'");
-}
-
 	if(pg_num_rows($query) > 0){
 		$row = pg_fetch_array($query);
 		if($password == $row['senha_usuario']){
@@ -61,8 +59,8 @@ else {
 		$response["success"] = 0;
 		$response["error"] = "usuario ou senha não confere";
 	}
-	
-	
-	pg_close($con);
-	echo json_encode($response);
+}
+		
+pg_close($con);
+echo json_encode($response);
 ?>
