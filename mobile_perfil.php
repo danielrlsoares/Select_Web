@@ -36,14 +36,15 @@ else {
 			
 			$response["success"] = 1;
 			
-			$dados = pg_query($con, "SELECT * FROM usuario WHERE email_usuario='$username'");
+			$comando = pg_query($con, "SELECT * FROM usuario WHERE email_usuario='$username'");
+			$dados = pg_fetch_array($comando)
 			if(pg_num_rows($dados) > 0){
 				
-				$response["email"] = $row["email_usuario"];
-				$response["nome"] = $row["nome_usuario"];
-				$response["dat_nasc"] = $row["dat_nasc_usuario"];
-				$response["cpf"] = $row["cpf_usuario"];
-				$response["telefone"] = $row["telefone_usuario"];
+				$response["email"] = $dados["email_usuario"];
+				$response["nome"] = $dados["nome_usuario"];
+				$response["dat_nasc"] = $dados["dat_nasc_usuario"];
+				$response["cpf"] = $dados["cpf_usuario"];
+				$response["telefone"] = $dados["telefone_usuario"];
 				
 			}
 			
