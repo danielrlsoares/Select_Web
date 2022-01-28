@@ -28,6 +28,7 @@ if(is_null($username)) {
 // Se houve envio dos dados
 else {
     $query = pg_query($con, "SELECT senha_usuario FROM usuario WHERE email_usuario='$username'");
+}
 
 	if(pg_num_rows($query) > 0){
 		$row = pg_fetch_array($query);
