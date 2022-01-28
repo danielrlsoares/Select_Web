@@ -41,7 +41,7 @@ else {
 		$referencia = trim($_POST['referencia']);
 		$material = trim($_POST['material']);
 
-		$imageFileType = strtolower(pathinfo(basename($_FILES['foto']['TIMESTAMP']),PATHINFO_EXTENSION)); //
+		$imageFileType = strtolower(pathinfo(basename($_FILES['foto'][time()]),PATHINFO_EXTENSION)); //
 		$image_base64 = base64_encode(file_get_contents($_FILES['foto']['tmp_name']) ); //
 		$foto = 'data:image/'.$imageFileType.';base64,'.$image_base64;
 
