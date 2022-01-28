@@ -29,7 +29,7 @@ if(is_null($username)) {
 // Se houve envio dos dados
 else {
 	
-	if ( isset($_POST["rua"]) && isset($_POST["bairro"]) && isset($_POST["cidade"]) && isset($_POST["numero"]) && isset($_POST["uf"]) && isset($_POST["cep"]) && isset($_POST["referencia"]) && isset($_POST["material"]) && isset($_FILES["foto"]) )
+	if ( isset($_POST["rua"]) && isset($_POST["bairro"]) && isset($_POST["cidade"]) && isset($_POST["numero"]) && isset($_POST["uf"]) && isset($_POST["cep"]) && isset($_POST["referencia"]) && isset($_POST["material"]) && isset($_FILES["foto"]) ) {
 	
 		$rua = trim($_POST["rua"]);
 		$bairro = trim($_POST["bairro"]);
