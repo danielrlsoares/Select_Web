@@ -4,7 +4,6 @@
 	<title>Select - Home</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css"/>
 	<meta charset="utf-8"/>
-	<meta http-equiv="refresh" content="5" url="home.php">
 </head>
 	
 <?php
