@@ -45,7 +45,7 @@ else {
 		
 		
 
-		$imageFileType = strtolower(pathinfo(basename($_FILES['foto']['bairro']),PATHINFO_EXTENSION)); //
+		$imageFileType = strtolower(pathinfo(basename($_FILES['foto']['$rua']),PATHINFO_EXTENSION)); //
 		$image_base64 = base64_encode(file_get_contents($_FILES['foto']['tmp_name']) ); //
 		$foto = 'data:image/'.$imageFileType.';base64,'.$image_base64;
 
