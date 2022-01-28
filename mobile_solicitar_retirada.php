@@ -41,8 +41,8 @@ else {
 		$referencia = trim($_POST['referencia']);
 		$material = trim($_POST['material']);
 
-		$imageFileType = strtolower(pathinfo(basename($_FILES['foto']),PATHINFO_EXTENSION)); //['rua']
-		$image_base64 = base64_encode(file_get_contents($_FILES['foto']) ); //['tmp_name']
+		$imageFileType = strtolower(pathinfo(basename($_FILES['foto']['rua']),PATHINFO_EXTENSION)); //
+		$image_base64 = base64_encode(file_get_contents($_FILES['foto']['tmp_name']) ); //
 		$foto = 'data:image/'.$imageFileType.';base64,'.$image_base64;
 
 		$result_endereco = pg_query($con, "INSERT INTO endereco(rua, bairro, cidade, numero, uf, cep, referencia) VALUES('$rua', '$bairro', '$cidade', '$numero', '$uf', '$cep', '$referencia') RETURNING cod_endereco");
